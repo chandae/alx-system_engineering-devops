@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# script connects to my web-01 server via ssh
+
+ssh -i ~/.ssh/school ubuntu
