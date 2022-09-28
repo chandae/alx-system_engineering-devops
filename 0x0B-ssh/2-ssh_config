@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # ssh client config
 
-
 Host *
     PasswordAuthentication no
     IdentityFile ~/.ssh/school
