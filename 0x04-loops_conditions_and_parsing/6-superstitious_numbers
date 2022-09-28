@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# prints 1 to 20 with while loop
+# after 4, it prints 'bad luck from china'; after 9 'bad luck from japan'
+# after 17 'bad luck from Italy'
+
+i=1
+
+while [ $i -le 20 ];
+do
+	echo $i
+	if [ $i -eq 4 ]; then 
+		echo "bad luck from China"
+	elif [ $i -eq 9 ]; then
+		echo "bad luck from Japan"
+	elif [ $i -eq 17 ]; then
+		echo "bad luck from Italy"
+	fi
+	i=$((i+1))
+done
