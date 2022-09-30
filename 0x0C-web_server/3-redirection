@@ -7,7 +7,7 @@ ufw allow 'Nginx HTTP'
 
 # /redirect redirects to 302 Moved Permanently
 sed -i '40i\\tlocation /redirect_me {' /etc/nginx/sites-available/default
-sed -i '41i\\t\treturn 302;' /etc/nginx/sites-available/default
+sed -i '41i\\t\treturn 301;' /etc/nginx/sites-available/default
 sed -i '42i\\t}' /etc/nginx/sites-available/default
 
 service nginx restart
