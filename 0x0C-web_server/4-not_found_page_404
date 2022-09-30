@@ -5,6 +5,10 @@ apt update
 apt -y install nginx
 ufw allow 'Nginx HTTP'
 
+#Give the user  ownership to website files
+chown -R $USER:$USER /var/www/html
+chmod -R 755 /var/www
+
 # /redirect redirects to 302 Moved Permanently
 sed -i '40i\\tlocation /redirect_me {' /etc/nginx/sites-available/default
 sed -i '41i\\t\treturn 301;' /etc/nginx/sites-available/default
