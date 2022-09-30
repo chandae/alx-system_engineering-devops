@@ -1,14 +1,16 @@
 #!/usr/bin/env bash
 # create custom not found page 404 on web server
 
-apt-get update
-apt-get -y install nginx
-
+apt update
+apt -y install nginx
 ufw allow 'Nginx HTTP'
 
-sed -i '39i\\trewrite ^/redirect_me 301 permanent;' /etc/nginx/sites-available/default
+# /redirect redirects to 302 Moved Permanently
+sed -i '40i\\tlocation /redirect_me {' /etc/nginx/sites-available/default
+sed -i '41i\\t\treturn 301;' /etc/nginx/sites-available/default
+sed -i '42i\\t}' /etc/nginx/sites-available/default
 
-echo "<html><body>Ceci n'est pas une page</body></html>" > /var/www/html/error_404.html
+echo "<html><body>Ceci n'est pas une page</body></html>" >> /var/www/html/error_404.html
 sed -i '38i\\terror_page 404 /error_404.html;' /etc/nginx/sites-available/default
 
 service nginx restart
